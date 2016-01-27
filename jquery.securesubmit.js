@@ -757,3 +757,7 @@ Messages.prototype.receiveMessage = function(callback, source_origin) {
     }
     jQuery(document).trigger('receiveMessageHandlerAdded');
 };
+
+if (typeof exports === 'object') {
+    module.exports = hps;
+}
