@@ -22,7 +22,7 @@ var hps = (function ($) {
                 "object": "token",
                 "token_type": "supt",
                 "_method": "post",
-                "card[number]": $.trim(options.data.number),
+                "card[number]": $.trim(options.data.number).replace(/\D/g, ''),
                 "card[cvc]": $.trim(options.data.cvc),
                 "card[exp_month]": $.trim(options.data.exp_month),
                 "card[exp_year]": $.trim(options.data.exp_year)
@@ -205,7 +205,7 @@ var hps = (function ($) {
                 HPS.tokenize({
                     data: {
                         public_key: data.public_key,
-                        number: $.trim($("#card_number").val()),
+                        number: $.trim($("#card_number").val()).replace(/\D/g, ''),
                         cvc: $.trim($("#card_cvc").val()),
                         exp_month: $.trim($("#exp_month").val()),
                         exp_year: $.trim($("#exp_year").val())
