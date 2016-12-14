@@ -20,7 +20,7 @@ var hps = (function ($) {
 
         tokenize: function (options) {
             var gateway_url, params, env;
-            var number = $.trim(options.data.number);
+            var number = $.trim(options.data.number).replace(/\D/g, '');
             var exp_month = $.trim(options.data.exp_month);
             var exp_year = $.trim(options.data.exp_year);
 
@@ -159,7 +159,7 @@ var hps = (function ($) {
                 "_method": "post",
                 "encryptedcard[track]": $.trim(options.data.track),
                 "encryptedcard[track_method]": "swipe",
-                "encryptedcard[track_number]": $.trim(options.data.track_number),
+                "encryptedcard[track_number]": $.trim(options.data.track_number).replace(/\D/g, ''),
                 "encryptedcard[ktb]": $.trim(options.data.ktb),
                 "encryptedcard[pin_block]": $.trim(options.data.pin_block)
             });
@@ -202,7 +202,7 @@ var hps = (function ($) {
             HPS.tokenize({
                 data: {
                   public_key: public_key,
-                  number: document.getElementById('heartland-card-number').value,
+                  number: document.getElementById('heartland-card-number').value.replace(/\D/g, ''),
                   cvc: document.getElementById('heartland-cvv').value,
                   exp_month: document.getElementById('heartland-expiration-month').value,
                   exp_year: document.getElementById('heartland-expiration-year').value
@@ -422,7 +422,7 @@ var hps = (function ($) {
                     }
                 }
 
-                var number = $.trim($("#card_number").val());
+                var number = $.trim($("#card_number").val()).replace(/\D/g, '');
                 var exp_month = $.trim($("#exp_month").val());
                 var exp_year = $.trim($("#exp_year").val());
 
